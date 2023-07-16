@@ -1,5 +1,6 @@
-import Task1.Cat;
-public class Main {
+package Task1;
+
+public class MainT1 {
     public static void main(String[] args) {
 //Задача 1:
 //Добавить пять интерфейсов к классам из ДЗ 1, включающих все концепции, упомянутые на семинаре. включающих:
@@ -14,13 +15,22 @@ public class Main {
         Cat cat3 = new Cat("Персик", 8, "Дмитрий");
 
         cat1.greet();
+
         cat2.greet();
         cat3.greet();
 
         cat2.setAge(5);
-        cat2.setNewOwner("Васиилй");
+        cat2.setNewOwner("Василий");
         cat2.greet();
+        cat2.run();
         System.out.println("-------------------");
 
+        OwnerCat.sayHello();
+        System.out.println("-------------------");
+
+        ForestCat fcat = new ForestCat("Манул", 15, "пустыня Южной Африки");
+        fcat.displayHabitat();
+        fcat.greet();
+        fcat.run();
     }
 }

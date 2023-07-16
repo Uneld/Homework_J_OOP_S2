@@ -1,14 +1,14 @@
 package Task1;
 
-public class Cat {
+public class Cat implements CatInterface, Ownerable, CanRunningInterface{
     private String name;
     private int age;
 
     private Owner owner;
 
     public Cat() {
-        name = "Барсик";
-        age = 1;
+        name = OwnerCat.DEFAULT_NAME;
+        age = DEFAULT_AGE;
         owner = new Owner();
     }
 
@@ -18,11 +18,17 @@ public class Cat {
         owner = new Owner();
     }
 
+    @Override
+    public void run() {
+        System.out.println("Я бегаю по дому! Тыг-дык, тыг-дык!");
+    }
+
     public Cat(String name, int age, String ownerName) {
         this(name, age);
         this.owner = new Owner(ownerName);
     }
 
+    @Override
     public void greet() {
         System.out.printf("Мяу! Меня зовут %s. Мне %d года(лет). Мой владелец - %s.\n", name, age, owner.getName());
     }
@@ -35,6 +41,7 @@ public class Cat {
         this.owner.setName(ownerName);
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -43,6 +50,7 @@ public class Cat {
         this.name = name;
     }
 
+    @Override
     public int getAge() {
         return age;
     }
